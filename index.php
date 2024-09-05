@@ -1,11 +1,9 @@
 <?php 
-include "header.php";
-include "navbar.php";
+header("Location: admin/index.php");
+exit();
 ?>
 
-
-
-<div class="container" style="margin-top:30px">
+<!-- <div class="container" style="margin-top:30px">
   <div class="row">
     <div class="col-sm-4 text-center">
       <h1>TURNOS</h1>
@@ -25,17 +23,12 @@ include "navbar.php";
       <hr class="d-sm-none">
     </div>
 
-    
     <div class="col-sm-8">
       <div class="text-justify">
           <h4 class="alert alert-info">Haz clic en el botón para iniciar tu reserva. Recibirás un correo de confirmación una vez procesada.
            <b> ¡Reservar nunca fue tan fácil! </b>
 </h4>
       </div>
-      <?php 
-        include "modal_reserva.php";
-        #include "metodos/form_insert.php";
-      ?>
 
       <hr>
       <div class="text-justify">
@@ -46,10 +39,4 @@ include "navbar.php";
 
     </div>
   </div>
-</div>
-
-
-
-
-
-<?php include "footer.php";?>
+</div> -->

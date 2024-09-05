@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST["password"];
 
     // Consulta para verificar el inicio de sesión
-    $query = "SELECT * FROM usuarios WHERE username = :username";
+    $query = "SELECT * FROM aux_roles WHERE rol = :username";
     $stmt = $db->prepare($query);
     $stmt->bindParam(":username", $username);
     $stmt->execute();

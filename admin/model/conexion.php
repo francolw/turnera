@@ -1,13 +1,13 @@
 <?php
 #propiedades de host
-$pass='95805669';
+$pass='';
 $user = 'root';
-$namedb = 'citas';
+$namedb = 'demo';
 
 try {
     $db = new PDO(
-        'mysql:host=localhost;dbname='.$namedb, $user, $pass
-    );
+        'mysql:host=127.0.0.1;port=3308;dbname='.$namedb, $user, $pass
+    );    
    # echo 'Exito';
 } catch (Exception $error) {
     echo 'error conexion'.$error->getMessage();
