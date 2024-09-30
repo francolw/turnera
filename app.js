@@ -240,7 +240,7 @@ const flowInsertarTurno = addKeyword(EVENTS.ACTION)
                 await state.update({ numeroTurno });
 
                 const id_servicio = state.get('serviciosFormat');
-                const idVehiculoConf = state.get('idVehiculo');
+                const idVehiculoConf = state.get('idVehiculoConf');
                 const patente = state.get('patente');
 
                 const dataTurno = {
@@ -292,7 +292,7 @@ const flowConfirmacion = addKeyword(EVENTS.ACTION)
                 const resTurno = response.data.map((turno) => 
                     `- *Fecha:* ${turno.fecha} \n - *Nombre:* ${turno.nombre} \n - *Servicio:* ${turno.servicios} - *Costo:* ${costoServicio}`
                 ).join('\n');
-                await flowDynamic(`${text.reservation.date.success} Detalles:\n  ${resTurno}`);
+                await flowDynamic(`Detalles:\n  ${resTurno}`);
                 await gotoFlow(flowPago);
             } else {
                 await flowDynamic(text.reservation.date.error);
@@ -372,7 +372,7 @@ const flowConsultarTurno = addKeyword(EVENTS.ACTION)
                     const response = await postToAPI('consultarTurno', data);
                     if (response.status =='success' && Array.isArray(response.data)) {
                         const turnosMapped = response.data.map((turnos) => 
-                            `- *N°:* ${turnos.id}- *Fecha:* ${turnos.fecha} \n - *Nombre:* ${turnos.nombre} \n - *Servicio:* ${turnos.servicios} \n\n`).join('\n');
+                            `- *N°:* ${turnos.id} \n - *Fecha:* ${turnos.fecha} \n - *Nombre:* ${turnos.nombre} \n - *Servicio:* ${turnos.servicios} \n\n`).join('\n');
                         await flowDynamic(`${text.reservation.consult.pendingAppointments} \n${turnosMapped}`);
                     } else {
                         await flowDynamic(text.reservation.consult.notFound);
@@ -422,6 +422,7 @@ const flowCancelarTurno = addKeyword(EVENTS.ACTION)
 
                     if (response.status == 'success') {
                         await flowDynamic(text.reservation.cancel.success);
+                        await flowDynamic(text.globals.endingFlows);
                     } else {
                         await flowDynamic(text.globals.problem);
                     }

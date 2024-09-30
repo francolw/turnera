@@ -15,9 +15,9 @@
       "welcome": "👋 Bienvenido a *Lavadero ...*",
       "promptAction": "¿Qué deseas hacer? (Ingresá el número que corresponde):",
       "options": {
-            "1": "1. Reservar turno 📅",
-            "2": "2. Consultar - Cancelar turno ❌",
-            "3": "3. Hablar con un agente 💬"
+            "1": "*1.* Reservar turno 📅",
+            "2": "*2.* Consultar - Cancelar turno ❌",
+            "3": "*3.* Hablar con un agente 💬"
              },
       "agent": "Un representante se estará comunicando 📞"
     },
@@ -62,7 +62,7 @@
     
     "reservation": {
         "date": {
-              "dateConfirmation": "Confirma tu reserva",
+              "dateConfirmation": "Vamos a confirmar tu reserva!",
               "success": "Reserva confirmada con éxito",
               "error": "Hubo un problema al confirmar la reserva"
         },
@@ -73,10 +73,10 @@
           },
           
           "reservationMenu":{
-              "menu": "Como desea seguir? \nElejí una opcion!",
+              "menu": "*Como desea seguir?* \nElegí una opcion!",
               "options": {
-                  "1": "1. Eliminar un turno",
-                  "2": "2. Salir"
+                  "1": "*1.* Eliminar un turno",
+                  "2": "*2.* Salir"
               }
           },
           
