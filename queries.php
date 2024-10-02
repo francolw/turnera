@@ -413,6 +413,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
                                         ON tst.id_servicio = serv.id  
                                     WHERE tt.vigente = 1 AND 
                                             tt.id_cliente = :id_cliente
+                                            AND tt.id_estado = 1
                                     GROUP BY tt.fecha, tc.nombre";
 
                             $stmt = $db->prepare($query);
@@ -446,7 +447,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
 
                     try {
                         $query = "UPDATE tabla_turnos 
-                                SET fecha_actualizacion = NOW(), 
+                                SET id_estado = 6,
+                                    fecha_actualizacion = NOW(), 
                                     vigente = 1
                                 WHERE id = :id_turno_cancela";
 
