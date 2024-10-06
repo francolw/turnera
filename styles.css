@@ -1,0 +1,253 @@
+body {
+    width: 100%;
+    margin: 5px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    font-family: "Jost", sans-serif;
+    background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+}
+
+.main {
+    width: 350px;
+    height: 500px;
+    overflow: hidden;
+    margin-top: 60px;
+    background: (to bottom, #0f0c29, #302b63, #24243e);
+    border-radius: 10px;
+    box-shadow: 5px 20px 50px #000;
+}
+
+#chk {
+    display: none;
+}
+
+.signup {
+    height: 460px;
+    background: #eee;
+    border-radius: 60% / 10%;
+    transform: translateY(-180px); /* Ajuste inicial para estar fuera de la pantalla */
+    transition: 0.8s ease-in-out;
+}
+
+.signup label {
+    color: #573b8a;
+    transform: scale(0.6);
+}
+
+label {
+    color: #fff;
+    font-size: 2.3em;
+    justify-content: center;
+    display: flex;
+    margin: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+}
+
+input {
+    width: 60%;
+    height: 10px;
+    background: #e0dede;
+    justify-content: center;
+    display: flex;
+    margin: 20px auto;
+    padding: 12px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+button {
+    width: 60%;
+    height: 40px;
+    margin: 10px auto;
+    justify-content: center;
+    display: block;
+    color: #fff;
+    background: #573b8a;
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 30px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    transition: 0.2s ease-in;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #6d44b8;
+}
+
+.login {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    transition: 0.8s ease-in-out;
+}
+
+.login label {
+    color: #573b8a;
+}
+
+#chk:checked ~ .login {
+    transform: translateY(-25px); /* Mueve el login fuera de la pantalla */
+}
+
+#chk:checked ~ .signup {
+    transform: translateY(-500px); /* Hace visible el signup */
+}
+
+
+/* Asegurarse de que el contenido no quede oculto debajo de la navbar */
+/* body {
+    padding-top: 56px;
+} */
+
+.navbar {
+    z-index: 1000;
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    font-size: 1.2rem;
+}
+
+.nav-link.active {
+    font-weight: bold;
+    color: #fff !important;
+}
+
+.container {
+    margin-top: 60px;
+}
+
+
+.banner {
+    background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e); /* Misma paleta de colores */
+    border: 2px solid rgba(255, 255, 255, 0.3); /* Borde semi-transparente como el fondo del formulario */
+    border-radius: 10px; /* Esquinas redondeadas para concordar con el formulario */
+    box-shadow: 5px 20px 50px #000; /* Misma sombra que el formulario */
+    width: 80%; /* Ajuste de ancho */
+    max-width: 800px;
+    max-height: 150px; /* Mantener el alto */
+    padding: 5px;
+    margin-top: 90px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-around;
+    position: absolute;
+    z-index: 1002;
+    backdrop-filter: blur(10px);
+}
+
+.weather-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: #fff; /* Mismo color que el texto del formulario */
+}
+
+.temp {
+    font-size: 1.3rem; /* Ajuste del tamaño de la temperatura para que sea legible */
+    font-weight: bold;
+}
+
+.description {
+    font-style: italic;
+    color: #e0dede; /* Color similar al input del formulario */
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.footer {
+    color: #bbb;
+    font-size: 1rem;
+}
+
+.icon {
+    width: 70px;
+    margin-left: 10px;
+}
+
+.turnos-table {
+    width: 70%;
+    border-collapse: collapse; /* Elimina espacios entre bordes */
+    margin-top: 300px;
+    position: absolute;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 5px 20px 50px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.turnos-table thead {
+    background-color: #573b8a;
+    color: white;
+}
+
+.turnos-table th, .turnos-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd; /* Borde inferior entre las filas */
+}
+
+.turnos-table th {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.turnos-table tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+.number {
+    text-align: right; /* Alinear números a la derecha */
+    font-family: monospace;
+}
+
+.minw {
+    width: 100px; /* Mínimo ancho para columnas específicas */
+}
+
+
+.popup {
+    position: fixed; /* Mantiene el popup fijo en la ventana */
+    left: 0; /* Alineación a la izquierda */
+    top: 0; /* Alineación a la parte superior */
+    width: 100%; /* Ancho completo de la pantalla */
+    height: 100%; /* Altura completa de la pantalla */
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro con transparencia */
+    display: none; /* Utiliza flexbox */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    z-index: 1010; /* Asegúrate de que esté en la parte superior */
+    overflow: scroll;
+}
+
+.popup-content {
+    background-color: #fff; /* Fondo blanco para el contenido */
+    padding: 20px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    text-align: center; /* Alineación centrada */
+    width: 500px; /* Ancho del contenido del popup */
+}
+
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}

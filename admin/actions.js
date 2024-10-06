@@ -10,10 +10,9 @@ $(document).ready(function() {
             password: password,
             login: true // Añade un indicador para saber que es un inicio de sesión
         };
-        
+
         $.post('../admin/metodos/login_proc.php', loginData, function(response) {
-            alert(response); // Muestra la respuesta del servidor
-            // Aquí puedes redirigir o manejar la respuesta como desees
+             window.location.href = '../admin/inicio.php';
         }).fail(function(jqXHR, textStatus, errorThrown) {
             alert("Error al iniciar sesión." + errorThrown);
         });
@@ -34,12 +33,26 @@ $(document).ready(function() {
         };
 
         $.post('../admin/metodos/signup_proc.php', signupData, function(response) {
-            console.log('si');
-            alert(response); // Muestra la respuesta del servidor
-            // Aquí puedes redirigir o manejar la respuesta como desees
+            window.location.href = '../admin/inicio.php';
         }).fail(function(jqXHR, textStatus, errorThrown) {
             alert("Error al registrar usuario." + errorThrown);
-            console.log('no');
         });
+    });
+
+    $('#configLink').click(function(event) {    
+        event.preventDefault(); // Evita que el enlace haga su acción por defecto
+        $('#popup').css("display", "flex"); // Muestra el popup
+    });
+
+    // Manejar el clic en la 'x' para cerrar el popup
+    $('#closePopup').click(function() {
+        $('#popup').hide(); // Oculta el popup
+    });
+
+    // Manejar clic fuera del contenido del popup para cerrarlo
+    $(window).click(function(event) {
+        if ($(event.target).is('#popup')) {
+            $('#popup').hide(); // Oculta el popup
+        }
     });
 });
