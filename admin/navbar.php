@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand">Bienvenido, user</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,7 +22,24 @@
         </div>
     </div>
 </nav>
+ -->
 
+ <ul id="nav-1"> 
+    <li class="slide1"></li>         
+    <li class="slide2"></li>
+    <li><a class="sliderup" href="#/" name="btn_turnos">Turnos</a></li>
+    <li><a class="sliderup" href="#/" name="btn_servicios">Servicios</a></li>
+    <li><a class="sliderup" href="#/" name="btn_clientes">Clientes</a></li>
+    <li><a class="sliderdown" href="#/" name="btn_config">Configuracion</a></li>
+    <li><a class="sliderdown" href="#/" name="cerrar_sesion">Cerrar Sesión</a></li>
+</ul>
+
+<ul id="nav-2">
+    <li class="slide3"></li>
+    <li class="slide4"></li>
+    <li><a href="#/" name="btn_alta"><img src="../img/add-icon.png" alt="Alta" width="40" height="40"></a></li>
+    <li><a href="#/" name="btn_editar"><img src="../img/pencil-icon.png" alt="Editar" width="35" height="35"></a></li>
+</ul>
 
 
 <div id="popup" class="popup">

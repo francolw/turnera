@@ -1,15 +1,13 @@
 <?php
-#propiedades de host
-$pass='';
-$user = 'root';
-$namedb = 'demo';
+$config = require '../admin/model/config.inc.php';
 
 try {
     $db = new PDO(
-        'mysql:host=127.0.0.1;port=3308;dbname='.$namedb, $user, $pass
-    );    
-   # echo 'Exito';
+        'mysql:host='.$config['host'].';port='.$config['port'].';dbname='.$config['dbname'],
+        $config['user'],
+        $config['pass']
+    );  
 } catch (Exception $error) {
-    echo 'error conexion'.$error->getMessage();
+    echo 'Error de conexión: ' . $error->getMessage();
     die();
 }

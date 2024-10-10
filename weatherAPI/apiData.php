@@ -1,6 +1,6 @@
 <?php
 // Definir tu clave de API
-$apiKey = 'H1TPGWujtCVh8aw1BlS9fB2XKBduPmqk';
+$apiKey = 'xEB1juPWKDesSvEQRZkVyTk6E7krJCXR';
 
 // Función para obtener el locationKey
 function getLocationKey($city) {
