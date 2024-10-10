@@ -5,6 +5,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    overflow: hidden;
     min-height: 100vh;
     font-family: "Jost", sans-serif;
     background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
@@ -140,14 +141,14 @@ button:hover {
     max-width: 800px;
     max-height: 150px; /* Mantener el alto */
     padding: 5px;
-    margin-top: 90px;
+    margin-top: 50px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: space-around;
-    position: absolute;
-    z-index: 1002;
+    position: fixed;
+    z-index: 999;
     backdrop-filter: blur(10px);
 }
 
@@ -179,44 +180,124 @@ button:hover {
     margin-top: 50px;
 }
 
-.turnos-table {
-    width: 70%;
-    border-collapse: collapse; /* Elimina espacios entre bordes */
-    margin-top: 300px;
-    position: absolute;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 5px 20px 50px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+.fila-par {
+    background-color: #f9f9f9; /* Color para las filas pares */
 }
 
-.turnos-table thead {
+.fila-impar {
+    background-color: #ccccccbb; /* Color para las filas impares */
+}
+
+.fila-no-vigente {
+    color: red;
+    font-weight: bold;
+}
+
+#contenido-dinamico {
+    margin-top: 350px;
+    position: absolute;
+    overflow-y: auto !important;
+    width: auto !important;
+    max-height: 375px !important;
+    border-radius: 12px !important;
+    background: #f5f5f5;
+    box-shadow: 5px 20px 50px #000; /* Misma sombra que el formulario */
+    backdrop-filter: blur(5px);
+}
+
+#contenido-dinamico table {
+    width: auto !important;
+    border-collapse: collapse; /* Evita los espacios entre celdas */
+}
+
+#contenido-dinamico thead {
+    position: sticky;
+    top: 0;
+    z-index: 1010;
     background-color: #573b8a;
     color: white;
+    width: auto !important;
 }
 
-.turnos-table th, .turnos-table td {
-    padding: 12px;
+#contenido-dinamico thead th {
+    box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 1); /* Sombra para hacer que el thead destaque */
+}
+
+#contenido-dinamico th, #contenido-dinamico td {
+    padding: 8px;
     text-align: left;
     border-bottom: 1px solid #ddd; /* Borde inferior entre las filas */
 }
 
-.turnos-table th {
+#contenido-dinamico th {
     font-size: 1.1rem;
     font-weight: bold;
 }
 
-.turnos-table tbody tr:hover {
-    background-color: #f5f5f5;
+ #contenido-dinamico tbody {
+    display: absolute;
+    max-height: 350px; 
+    overflow-y: auto; 
+    width: auto !important;
+}
+
+
+#contenido-dinamico tbody tr {
+    display: absolute; 
+    width: auto !important;
+    table-layout: fixed; 
+}
+
+#contenido-dinamico tbody tr:hover {
+    background-color: #b0b0b0;
+}
+
+.clickable-icon {
+    background: transparent;
+}
+
+@media (max-width: 768px) {
+    #contenido-dinamico th, #contenido-dinamico td {
+        padding: 8px;
+    }
+}
+
+#contenido-dinamico::-webkit-scrollbar {
+    width: 9px; 
+}
+
+#contenido-dinamico::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    border-radius: 10px;
+}
+
+#contenido-dinamico::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+    border: 3px solid transparent;
+    background-clip: content-box; 
+}
+
+
+#contenido-dinamico::-webkit-scrollbar-thumb:hover {
+    background-color: #989898;
+}
+
+#contenido-dinamico::-webkit-scrollbar {
+    box-shadow: inset 0 0 5px grey;
+}
+
+#contenido-dinamico::-webkit-scrollbar-track {
+    background-color: #f2f2f2; 
 }
 
 .number {
-    text-align: right; /* Alinear números a la derecha */
+    text-align: right; 
     font-family: monospace;
 }
 
 .minw {
-    width: 100px; /* Mínimo ancho para columnas específicas */
+    width: 100px; 
 }
 
 
@@ -230,8 +311,8 @@ button:hover {
     display: none; /* Utiliza flexbox */
     justify-content: center; /* Centra horizontalmente */
     align-items: center; /* Centra verticalmente */
-    z-index: 1010; /* Asegúrate de que esté en la parte superior */
-    overflow: scroll;
+    z-index: 1000; /* Asegúrate de que esté en la parte superior */
+    overflow: auto;
 }
 
 .popup-content {
@@ -249,4 +330,101 @@ button:hover {
     right: 15px;
     font-size: 24px;
     cursor: pointer;
+}
+
+#nav-1 {
+    position: absolute;
+    border: none;
+    border-radius: 10em;
+    display: flex;
+    list-style: none;
+    background: #f5f5f5;
+    box-shadow: 20px 40px 40px #00000033;
+    padding: 10px;
+    margin-top: 250px;
+    li {
+        margin: 0px;
+        a {
+            position: relative;
+            padding: 0.6em 2em;
+            font-size: 18px;
+            border: none;
+            outline:none;
+            color: #1d1d1d;
+            display: inline-block;
+            text-decoration: none;
+            z-index: 3;
+        }
+    }
+    .slide1,
+    .slide2 {
+        position: absolute;
+        display: inline-block;
+        height: 3em;
+        border-radius: 10em;
+        transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1.05);
+    }
+    .slide1 {
+        background-color: #70589c;
+        z-index: 2;
+    }
+    .slide2 {
+        opacity: 0;
+        background: #ccc1d8;
+        z-index: 1;
+    }
+    .squeeze {
+        transform: scale(0.9);
+    }
+}
+
+#nav-2 {
+        position: absolute;
+        border: none;
+        display: flex;
+        list-style: none;
+        background: transparent;
+        /* box-shadow: 20px 40px 40px #00000033; */
+        padding: 10px;
+        /* margin-top: 900px; */
+        bottom: -100px;
+        left: 50%;
+        gap: 10px; /* Añadido para separación entre botones */
+        transform: translateX(-50%); /* Ajuste para el centrado */
+        transition: bottom 0.5s ease;
+    }
+
+#nav-2 li a {
+    position: relative;
+    padding: 1em;
+    font-size: 24px;
+    border: none;
+    outline: none;
+    color: #1d1d1d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background-color: #70589c; /* Color de fondo de los botones */
+    border-radius: 50%; /* Hacer que los botones sean circulares */
+    width: 60px; /* Ancho del botón */
+    height: 60px; /* Alto del botón */
+    transition: background-color 0.5s ease, transform 0.5s ease; /* Transición suave */
+}
+
+#nav-2 li a:hover {
+    background-color: #9b83c9; /* Cambiar el color al pasar el ratón */
+    transform: rotate(90deg);
+}
+
+#nav-2 li a i {
+    color: white; /* Color del icono */
+}
+
+
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
